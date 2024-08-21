@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import MedicineSearch from "../components/MedicineSearch";
 import api from "../axiosConfig.js";
 import "../components/SearchPage.css";
-import { toast } from 'react-toastify';
-
+import { toast } from "react-toastify";
 
 const SearchPage = () => {
   const [order, setOrder] = useState([]);
@@ -51,7 +50,7 @@ const SearchPage = () => {
       setOrder([]);
       console.log("Order placed successfully:", response.data);
     } catch (error) {
-        toast.error("Error placing order!");
+      toast.error("Error placing order!");
       console.error("Error placing order:", error);
     }
   };
@@ -77,7 +76,7 @@ const SearchPage = () => {
                 <tr key={index}>
                   <td>{item.name}</td>
                   <td>{item.quantity}</td>
-                  <td>${item.price * item.quantity}</td>
+                  <td>Rs. {item.price * item.quantity}</td>
                 </tr>
               ))}
             </tbody>

@@ -13,17 +13,17 @@ const OrderDetails = ({ user }) => {
         setOrders(response.data);
 
         // Fetch details for each medicine in the orders
-        const medicineIds = response.data.flatMap(order => 
-          order.medicines.map(medicine => medicine.medicineId)
+        const medicineIds = response.data.flatMap((order) =>
+          order.medicines.map((medicine) => medicine.medicineId)
         );
 
         // Remove duplicates
         const uniqueMedicineIds = [...new Set(medicineIds)];
-        
+
         const fetchMedicineDetails = async (id) => {
           try {
             const response = await api.get(`/medicines/${id}`);
-            setMedicineDetails(prev => ({ ...prev, [id]: response.data }));
+            setMedicineDetails((prev) => ({ ...prev, [id]: response.data }));
           } catch (error) {
             console.error(`Error fetching medicine ${id}:`, error);
           }
@@ -56,14 +56,17 @@ const OrderDetails = ({ user }) => {
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.postalAddress}</td>
-                <td className="total-amount">${order.totalAmount}</td>
+                <td className="total-amount">Rs.{order.totalAmount}</td>
                 <td>
                   <ul>
                     {order.medicines.map((medicine) => {
-                      const medicineDetail = medicineDetails[medicine.medicineId];
+                      const medicineDetail =
+                        medicineDetails[medicine.medicineId];
                       return (
                         <li key={medicine.medicineId}>
-                          {medicineDetail ? `${medicineDetail.name} - Quantity: ${medicine.quantity}` : `Loading... - Quantity: ${medicine.quantity}`}
+                          {medicineDetail
+                            ? `${medicineDetail.name} - Quantity: ${medicine.quantity}`
+                            : `Loading... - Quantity: ${medicine.quantity}`}
                         </li>
                       );
                     })}
