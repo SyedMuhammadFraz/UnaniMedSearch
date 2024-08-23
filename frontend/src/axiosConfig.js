@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3003/api",
+  baseURL: "https://unani-med-search.vercel.app",
 });
 
 export default api;
