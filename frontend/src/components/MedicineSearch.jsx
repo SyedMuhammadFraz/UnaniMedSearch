@@ -1,7 +1,7 @@
 // src/components/MedicineSearch.js
 import React, { useState } from "react";
 import api from "../axiosConfig.js";
-import "./Medicine.css"; // Import the CSS file
+import "./Medicine.css";
 import { toast } from "react-toastify";
 
 const MedicineSearch = ({ onAddToOrder }) => {

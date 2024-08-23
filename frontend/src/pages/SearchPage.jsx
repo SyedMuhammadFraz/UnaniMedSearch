@@ -39,7 +39,7 @@ const SearchPage = () => {
   const handlePlaceOrder = async () => {
     try {
       const response = await api.post("/order", {
-        user: "example_user@gmail.com", // Replace with actual user info
+        user: "ji@gmail.com", // Replace with actual user info
         medicines: order.map((item) => ({
           medicineId: item.medicineId,
           quantity: item.quantity,
