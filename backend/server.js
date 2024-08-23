@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your frontend's origin
+    origin: "https://unani-med-search-frontend.vercel.app", // Replace with your frontend's origin
     methods: "GET,POST,PUT,DELETE", // Allowed methods
   })
 );
